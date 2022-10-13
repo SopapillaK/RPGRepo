@@ -2029,7 +2029,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f87731e502c6d5b4ab06c0590a03a875, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxPlayers: 0
+  maxPlayers: 10
 --- !u!61 &502319434
 BoxCollider2D:
   m_ObjectHideFlags: 0
