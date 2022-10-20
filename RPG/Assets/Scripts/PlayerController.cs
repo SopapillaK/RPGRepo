@@ -80,18 +80,20 @@ public class PlayerController : MonoBehaviourPunCallbacks
     {
         lastAttackTime = Time.time;
 
-        Vector3 dir = (Input.mousePosition - Camera.main.ScreenToWorldPoint(transform.position)).normalized;
+        Vector3 dir = (Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position)).normalized;
 
         RaycastHit2D hit = Physics2D.Raycast(transform.position + dir, dir, attackRange);
 
         if(hit.collider != null && hit.collider.gameObject.CompareTag("Enemy"))
         {
-
+            Enemy enemy = hit.collider.GetComponent<Enemy>();
+            enemy.photonView.RPC("TakeDamage", RpcTarget.MasterClient, damage);
         }
 
         weaponAnim.SetTrigger("Attack");
     }
 
+    [PunRPC]
     public void TakeDamage(int damage)
     {
         curHp -= damage;
@@ -103,7 +105,14 @@ public class PlayerController : MonoBehaviourPunCallbacks
             Die();
         else
         {
-            StartCoroutine(DamageFlash());
+            photonView.RPC("FlashDamage", RpcTarget.All);
+        }
+    }
+
+    [PunRPC]
+    void FlashDamage()
+    {
+        StartCoroutine(DamageFlash());
 
             IEnumerator DamageFlash()
             {
@@ -111,7 +120,6 @@ public class PlayerController : MonoBehaviourPunCallbacks
                 yield return new WaitForSeconds(0.05f);
                 sr.color = Color.white;
             }
-        }
     }
 
     void Die()
@@ -135,6 +143,7 @@ public class PlayerController : MonoBehaviourPunCallbacks
         rig.isKinematic = false;
 
         // update the health bar
+        headerInfo.photonView.RPC("UpdateHealthBar", RpcTarget.All, curHp);
 
     }
 
@@ -153,5 +162,6 @@ public class PlayerController : MonoBehaviourPunCallbacks
         gold += goldToGive;
 
         // update UI
+        GameUI.instance.UpdateGoldText(gold);
     }
 }
