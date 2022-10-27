@@ -79,7 +79,7 @@ SpriteRenderer:
   m_SortingLayerID: -466711597
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 225393688, guid: 46a7955df69dd4b478c455f47e89fc77, type: 3}
+  m_Sprite: {fileID: 2041982204, guid: 46a7955df69dd4b478c455f47e89fc77, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -146,7 +146,7 @@ MonoBehaviour:
   chaseRange: 5
   attackRange: 1.5
   playerDetectRate: 0.2
-  objectToSpawnOnDeath: TreasurePickup
+  objectToSpawnOnDeath: HealthPickup
   damage: 15
   attackRate: 0.5
   healthBar: {fileID: 3915918295170521310}

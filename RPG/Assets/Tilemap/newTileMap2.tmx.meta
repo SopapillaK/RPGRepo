@@ -1,0 +1,27 @@
+fileFormatVersion: 2
+guid: c0f4125764364644d8b9766ef72dbb6d
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 1fa25d03934ea624a82bf2fcee6f0873, type: 3}
+  missingFiles: []
+  errors:
+  - Could not generate asset path for '../../../../Tiled.tsx'
+  - 'Missing tileset asset: ../../../../Tiled.tsx'
+  warnings: []
+  missingSortingLayers: []
+  missingLayers: []
+  missingTags: []
+  importerVersion: 26
+  pixelsPerUnit: 30
+  edgesPerEllipse: 30
+  numberOfObjectsImported: 2
+  tilesAsObjects: 1
+  sortingMode: 0
+  isIsometric: 0
+  customImporterClassName: 
+  internalTilesets: []
