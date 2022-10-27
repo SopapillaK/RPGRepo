@@ -90,6 +90,12 @@ public class PlayerController : MonoBehaviourPunCallbacks
             enemy.photonView.RPC("TakeDamage", RpcTarget.MasterClient, damage);
         }
 
+        if(hit.collider != null && hit.collider.gameObject.CompareTag("Honey"))
+        {
+            Honey honey = hit.collider.GetComponent<Honey>();
+            honey.photonView.RPC("TakeDamage", RpcTarget.MasterClient, damage);
+        }
+
         weaponAnim.SetTrigger("Attack");
     }
 

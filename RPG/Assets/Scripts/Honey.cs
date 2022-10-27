@@ -12,7 +12,13 @@ public class Honey : MonoBehaviourPun
 
     [Header("Components")]
     public SpriteRenderer sr;
-    GameObject honeyBlock;
+    public GameObject honeyBlock;
+    public Rigidbody2D rig;
+
+    void Start()
+    {
+        rig = GetComponent<Rigidbody2D> ();
+    }
 
     [PunRPC]
     public void TakeDamage(int damage)
